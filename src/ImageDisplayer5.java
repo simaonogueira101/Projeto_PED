@@ -12,6 +12,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -53,54 +54,90 @@ public class ImageDisplayer5 extends JPanel{
             }
         }
         
+        public void saveImage(String filename){
+            try {
+                // Grava imagem
+                ImageIO.write(image, "jpg", new File(filename));
+            }
+            
+            catch (IOException e) {
+                System.out.println( e.getMessage());
+            }
+        }
+        
+        public void createEmptyImage() {
+            image = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+            Graphics2D g2 = (Graphics2D)image.getGraphics();
+            g2.setColor(Color.white);
+            Rectangle2D r = new Rectangle2D.Double(0,0,WIDTH,HEIGHT);
+            g2.fill(r);
+            repaint();
+        }
+        
         public void drawImage() {
             try {
                 
-                String num = String.valueOf(Interface.numAlbumShow);
-                String fileLocation = "/Users/simaonogueira/OneDrive - Universidade de Coimbra/FCTUC - LDM/PED/NetBeansProjects/MiniProjeto/Album" + num + "/";
+                ArrayList<String> imagens = new ArrayList<String>();
                 
-                // Faz a leitura dos vários ficheiros dentro da pasta pretendida
-                File imgs = new File(fileLocation);
-                ArrayList<String> imagens = new ArrayList<String>(Arrays.asList(imgs.list()));
-                for(int i=0; i<imagens.size(); i++){
-                    String temp = imagens.get(i);
-                    // Remove o ficheiro que não nos interessa
-                    if(temp.equals(".DS_Store")){
-                        imagens.remove(i);
-                    }
+                int numImgs = 0;
+        
+                switch (Interface.numAlbumShow) {
+                    case 1:
+                        numImgs = Interface.imagensAlbum1.size();
+                        for(int i=0; i<numImgs; i++){
+                            imagens.add(Interface.imagensAlbum1.get(i));
+                        }
+                        break;
+                    case 2:
+                        numImgs = Interface.imagensAlbum2.size();
+                        for(int i=0; i<numImgs; i++){
+                            imagens.add(Interface.imagensAlbum2.get(i));
+                        }
+                        break;
+                    case 3:
+                        numImgs = Interface.imagensAlbum3.size();
+                        for(int i=0; i<numImgs; i++){
+                            imagens.add(Interface.imagensAlbum3.get(i));
+                        }
+                        break;
+                    default:
+                        break;
                 }
                 
-                // Número de Imagens a ler e display
-                int numImgs = imagens.size();
+                String num = String.valueOf(Interface.numAlbumShow);
+                String fileLocation = "./Album" + num + "/";
                 
-                // Verificação dos ficheiros lidos e dos nomes guardados
-                System.out.println("Nome das Imagens: " + imagens);
+                System.out.println("Nome do Album a Apresentar em ImageDisplayer5: " + Interface.numAlbumShow);
                 
-                // Criação de um ArrayList onde serão colocadas imagens
-                ArrayList<Image> albumIcons = new ArrayList<Image>();
+                Image thumbnail = null;
                 
-                // Leitura das várias imagens para adicionar ao ArrayList
-                for(int i=0; i<numImgs; i++){
-                    image = ImageIO.read(new File(fileLocation + imagens.get(i)));
-                    BufferedImage imgInput = ImageIO.read(new File(fileLocation + imagens.get(i)));
-                    if(imgInput.getWidth() > imgInput.getHeight()){
-                        Image thumbnail = imgInput.getScaledInstance(570, -1, Image.SCALE_SMOOTH);
-                        albumIcons.add(thumbnail);
+                image = ImageIO.read(new File(fileLocation + imagens.get(Interface.numFotoShowReel)));
+                BufferedImage imgInput = ImageIO.read(new File(fileLocation + imagens.get(Interface.numFotoShowReel)));
+                if(imgInput.getWidth() > imgInput.getHeight()){
+                    int scaledWidth = 880/imgInput.getWidth();
+                    if(scaledWidth * imgInput.getHeight() > 750){
+                        thumbnail = imgInput.getScaledInstance(-1, 750, Image.SCALE_SMOOTH);
                     }else{
-                        Image thumbnail = imgInput.getScaledInstance(-1, 570, Image.SCALE_SMOOTH);
-                        albumIcons.add(thumbnail);
+                        thumbnail = imgInput.getScaledInstance(880, -1, Image.SCALE_SMOOTH);
                     }
+                }else{
+                    thumbnail = imgInput.getScaledInstance(-1, 750, Image.SCALE_SMOOTH);
                 }
                 
                 // Criação de um fundo branco por detrás das imagens
-                BufferedImage fundo = ImageIO.read(new File("blank.png"));
-                Image thumbnailFundo = fundo.getScaledInstance(WIDTH, HEIGHT, Image.SCALE_SMOOTH);
-                image = new BufferedImage(WIDTH,HEIGHT, BufferedImage.TYPE_INT_RGB);
-                image.getGraphics().drawImage(thumbnailFundo, 0, 0, null);
+//                BufferedImage fundo = ImageIO.read(new File("blank.png"));
+//                Image thumbnailFundo = fundo.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+//                image = new BufferedImage(WIDTH,HEIGHT, BufferedImage.TYPE_INT_RGB);
+//                image.getGraphics().drawImage(thumbnailFundo, WIDTH/2 - thumbnail.getWidth(this)/2, HEIGHT/2 - thumbnail.getHeight(this)/2, null);
                 
                 // Apresenta a foto que dita o numFotoShowReel no painel de edit
-                image.getGraphics().drawImage(albumIcons.get(Interface.numFotoShowReel), WIDTH/2 - albumIcons.get(Interface.numFotoShowReel).getWidth(this)/2, HEIGHT/2 - albumIcons.get(Interface.numFotoShowReel).getHeight(this)/2, null);
+                image = new BufferedImage(thumbnail.getWidth(this), thumbnail.getHeight(this), BufferedImage.TYPE_INT_RGB);
+                //image.getGraphics().translate(this.getWidth()/2 - image.getWidth(null)/2, this.getHeight()/2 - image.getHeight(null)/2);
+                image.getGraphics().translate(1000, 1000);
+                image.getGraphics().drawImage(thumbnail, 0, 0, null);
             
+                // Measures to save Java allocated memory
+                imagens.clear();
             }
             catch (IOException e) {
                 System.out.println( e.getMessage());

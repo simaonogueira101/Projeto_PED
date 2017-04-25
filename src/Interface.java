@@ -3,10 +3,14 @@ import java.awt.Color;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JRadioButton;
 
 /*
@@ -47,25 +51,42 @@ public class Interface extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
         jDialog2 = new javax.swing.JDialog();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jPanel3 = new ImageDisplayer3();
-        jPanel5 = new ImageDisplayer4();
+        jPanel5 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
         jDialog3 = new javax.swing.JDialog();
         jScrollPane4 = new javax.swing.JScrollPane();
         jPanel6 = new javax.swing.JPanel();
+        jButton19 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jSlider1 = new javax.swing.JSlider();
+        jLabel3 = new javax.swing.JLabel();
+        jButton23 = new javax.swing.JButton();
+        jButton24 = new javax.swing.JButton();
         jPanel7 = new ImageDisplayer5();
         jButton6 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         jPanel1 = new CustomPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         jDialog1.setBackground(new java.awt.Color(51, 51, 51));
-        jDialog1.setLocation(new java.awt.Point(167, 53));
-        jDialog1.setMinimumSize(new java.awt.Dimension(1112, 760));
+        jDialog1.setLocation(new java.awt.Point(157, 53));
+        jDialog1.setMinimumSize(new java.awt.Dimension(1147, 760));
         jDialog1.setModal(true);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -86,7 +107,10 @@ public class Interface extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jPanel2);
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(880, 1096));
 
+        jPanel4.setMinimumSize(new java.awt.Dimension(880, 1077));
         jPanel4.setPreferredSize(new java.awt.Dimension(880, 1077));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -127,6 +151,13 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
+        jButton15.setText("X");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
         jDialog1Layout.setHorizontalGroup(
@@ -144,22 +175,27 @@ public class Interface extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDialog1Layout.setVerticalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+            .addGroup(jDialog1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jDialog1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
                             .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -167,32 +203,12 @@ public class Interface extends javax.swing.JFrame {
         );
 
         jDialog2.setBackground(new java.awt.Color(51, 51, 51));
-        jDialog2.setLocation(new java.awt.Point(142, 5));
-        jDialog2.setMinimumSize(new java.awt.Dimension(1158, 810));
+        jDialog2.setLocation(new java.awt.Point(190, 53));
+        jDialog2.setMinimumSize(new java.awt.Dimension(1078, 788));
         jDialog2.setModal(true);
+        jDialog2.setSize(new java.awt.Dimension(1078, 788));
 
-        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-        jScrollPane3.setPreferredSize(new java.awt.Dimension(4000, 205));
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel3.setPreferredSize(new java.awt.Dimension(4000, 201));
-        jPanel3.setRequestFocusEnabled(false);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3996, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 197, Short.MAX_VALUE)
-        );
-
-        jScrollPane3.setViewportView(jPanel3);
-
-        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel5.setMinimumSize(new java.awt.Dimension(1078, 0));
         jPanel5.setPreferredSize(new java.awt.Dimension(880, 525));
 
         jButton2.setText("<");
@@ -217,59 +233,133 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
+        jButton14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jButton16.setText("X");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(455, 455, 455)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(457, Short.MAX_VALUE))
+                .addGap(63, 63, 63)
+                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(86, 86, 86)
+                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(155, 155, 155)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 509, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(234, 234, 234))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(234, 234, 234)))))
+                .addContainerGap())
         );
+
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
         jDialog2.getContentPane().setLayout(jDialog2Layout);
         jDialog2Layout.setHorizontalGroup(
             jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialog2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 1146, Short.MAX_VALUE))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1072, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jDialog2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDialog2Layout.setVerticalGroup(
             jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jDialog3.setBackground(new java.awt.Color(51, 51, 51));
-        jDialog3.setLocation(new java.awt.Point(142, 5));
+        jDialog3.setLocation(new java.awt.Point(152, 5));
         jDialog3.setMinimumSize(new java.awt.Dimension(1158, 810));
         jDialog3.setModal(true);
-        jDialog3.setPreferredSize(new java.awt.Dimension(1158, 810));
 
         jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -279,34 +369,139 @@ public class Interface extends javax.swing.JFrame {
         jPanel6.setPreferredSize(new java.awt.Dimension(4000, 201));
         jPanel6.setRequestFocusEnabled(false);
 
+        jButton19.setFont(new java.awt.Font("Bebas Kai", 0, 36)); // NOI18N
+        jButton19.setText("Light");
+
+        jButton22.setFont(new java.awt.Font("Bebas Kai", 0, 36)); // NOI18N
+        jButton22.setText("Draw Shapes");
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel3.setFont(new java.awt.Font("Bebas Kai", 0, 36)); // NOI18N
+        jLabel3.setText("Contrast");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel3)))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jButton23.setFont(new java.awt.Font("Bebas Kai", 0, 36)); // NOI18N
+        jButton23.setText("Selection");
+
+        jButton24.setFont(new java.awt.Font("Bebas Kai", 0, 36)); // NOI18N
+        jButton24.setText("WaterMark");
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3996, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2721, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 197, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 20, Short.MAX_VALUE))
         );
 
         jScrollPane4.setViewportView(jPanel6);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel7.setMinimumSize(new java.awt.Dimension(880, 525));
         jPanel7.setPreferredSize(new java.awt.Dimension(880, 525));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1142, Short.MAX_VALUE)
+            .addGap(0, 876, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 566, Short.MAX_VALUE)
         );
 
+        jButton6.setFont(new java.awt.Font("Bebas Kai", 0, 36)); // NOI18N
         jButton6.setText("Save");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton17.setText("X");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
+
+        jButton20.setFont(new java.awt.Font("Bebas Kai", 0, 36)); // NOI18N
+        jButton20.setText("Save & Exit");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+
+        jButton21.setFont(new java.awt.Font("Bebas Kai", 0, 36)); // NOI18N
+        jButton21.setText("Save As");
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jDialog3Layout = new javax.swing.GroupLayout(jDialog3.getContentPane());
         jDialog3.getContentPane().setLayout(jDialog3Layout);
@@ -316,32 +511,49 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDialog3Layout.createSequentialGroup()
-                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 1146, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDialog3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46))))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 717, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton20, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(jButton21, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(jTextField1))))
+                .addContainerGap())
         );
         jDialog3Layout.setVerticalGroup(
             jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jDialog3Layout.createSequentialGroup()
+                        .addComponent(jTextField1)
+                        .addGap(0, 0, 0)
+                        .addComponent(jButton21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDialog3Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addComponent(jButton6)
+                        .addGap(0, 0, 0)
+                        .addComponent(jButton20)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(73, 73, 0, 0));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
+        jPanel1.setMinimumSize(new java.awt.Dimension(1297, 750));
         jPanel1.setPreferredSize(new java.awt.Dimension(1300, 750));
 
         jLabel1.setFont(new java.awt.Font("Bebas Kai", 0, 80)); // NOI18N
@@ -354,32 +566,51 @@ public class Interface extends javax.swing.JFrame {
             String username = System.getProperty("user.name");
             jLabel1.setText("Welcome  " + username + "!");
 
-            // Adaptado de: http://stackoverflow.com/questions/7301764/how-to-get-contents-of-a-folder-and-put-into-an-arraylist
-            File imagens = new File("/Users/simaonogueira/OneDrive - Universidade de Coimbra/FCTUC - LDM/PED/NetBeansProjects/MiniProjeto/Album1/");
-            ArrayList<String> nomes = new ArrayList<String>(Arrays.asList(imagens.list()));
-            for(int i=0; i<nomes.size(); i++){
-                String temp = nomes.get(i);
+            File imagens1 = new File("./Album1/");
+            ArrayList<String> nomes1 = new ArrayList<String>(Arrays.asList(imagens1.list()));
+            for(int i=0; i<nomes1.size(); i++){
+                String temp = nomes1.get(i);
                 if(temp.equals(".DS_Store")){
-                    nomes.remove(i);
+                    nomes1.remove(i);
                 }
             }
-
-            System.out.println("Nomes dos ficheiros no Album1: " + nomes);
-
-            for(int i=0; i<1; i++){
-                jPanel1.drawImage("/Users/simaonogueira/OneDrive - Universidade de Coimbra/FCTUC - LDM/PED/NetBeansProjects/MiniProjeto/Album1/" + nomes.get(nomes.size()/2), i, 0);
+            for(int i=0; i<nomes1.size(); i++){
+                Interface.imagensAlbum1.add(nomes1.get(i));
             }
 
-            //        for(int i=0; i<1297*nomes.size(); i++){
-                //            int numTemp = i/1297;
-                //            String imgTemp = nomes.get(numTemp);
-                //            System.out.println(numTemp);
-                //
-                //            jPanel1.drawImage("/Users/simaonogueira/OneDrive - Universidade de Coimbra/FCTUC - LDM/PED/NetBeansProjects/MiniProjeto/imgs/" + imgTemp, i, 0);
-                //        }
+            File imagens2 = new File("./Album2/");
+            ArrayList<String> nomes2 = new ArrayList<String>(Arrays.asList(imagens2.list()));
+            for(int i=0; i<nomes2.size(); i++){
+                String temp = nomes2.get(i);
+                if(temp.equals(".DS_Store")){
+                    nomes2.remove(i);
+                }
+            }
+            for(int i=0; i<nomes2.size(); i++){
+                Interface.imagensAlbum2.add(nomes2.get(i));
+            }
 
-            //        System.out.println(nomes.get(3));
-            //        jPanel1.drawImage("/Users/simaonogueira/OneDrive - Universidade de Coimbra/FCTUC - LDM/PED/NetBeansProjects/MiniProjeto/imgs/" + nomes.get(3), 0, 0);
+            File imagens3 = new File("./Album3/");
+            ArrayList<String> nomes3 = new ArrayList<String>(Arrays.asList(imagens3.list()));
+            for(int i=0; i<nomes3.size(); i++){
+                String temp = nomes3.get(i);
+                if(temp.equals(".DS_Store")){
+                    nomes3.remove(i);
+                }
+            }
+            for(int i=0; i<nomes3.size(); i++){
+                Interface.imagensAlbum3.add(nomes3.get(i));
+            }
+
+            System.out.println("Nomes dos ficheiros no Album 1: " + Interface.imagensAlbum1);
+            System.out.println("Nomes dos ficheiros no Album 2: " + Interface.imagensAlbum2);
+            System.out.println("Nomes dos ficheiros no Album 3: " + Interface.imagensAlbum3);
+            System.out.println("Numero de Albuns: " + Interface.numTotAlbum);
+            System.out.println("Numero do Album a apresentar: " + Interface.numAlbumShow);
+
+            for(int i=0; i<1; i++){
+                jPanel1.drawImage("./Album1/" + nomes1.get(nomes1.size()/2), i, 0);
+            }
         }
 
         jButton1.setFont(new java.awt.Font("Bebas Kai", 0, 36)); // NOI18N
@@ -408,7 +639,7 @@ public class Interface extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(307, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
@@ -431,21 +662,10 @@ public class Interface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Foi necessário aumentar o heap space do programa para 512MB
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        File album = new File("/Users/simaonogueira/OneDrive - Universidade de Coimbra/FCTUC - LDM/PED/NetBeansProjects/MiniProjeto/");
-        ArrayList<String> nomes = new ArrayList<String>(Arrays.asList(album.list()));
-        
-        for(int i=0; i<nomes.size(); i++){
-            String temp = nomes.get(i);
-            if(temp.contains("Album")){
-                numAlbum ++;
-            }
-        }
-        
-        System.out.println("Número de Albuns: " + numAlbum);
-        System.out.println("Nome dos Albuns: " + nomes);
         
         welcomeScreen = false;
         System.out.println("Welcome Screen?: " + welcomeScreen);
@@ -454,48 +674,93 @@ public class Interface extends javax.swing.JFrame {
         jPanel4.drawImage();
         jPanel2.drawImage();
         
-        MouseTracker mtAlbum = new MouseTracker();
-        MouseTracker1 mtFoto = new MouseTracker1();
-        jPanel2.addMouseListener(mtAlbum);
-        jPanel4.addMouseListener(mtFoto);
+        
+        // Adds Mouse Recognition Functionality
+//        MouseTracker mtAlbum = new MouseTracker();
+//        MouseTracker1 mtFoto = new MouseTracker1();
+//        jPanel2.addMouseListener(mtAlbum);
+//        jPanel4.addMouseListener(mtFoto);
         
         jDialog1.setVisible (true);
+
+        // Teste do último painel
+//        jPanel7.drawImage();
+//        jDialog3.setVisible (true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+
+        // Número de Imagens a ler e display
+        int numImgs = 0;
         
-        if(numFotoShowReel > 0){
+        switch (Interface.numAlbumShow) {
+            case 1:
+                numImgs = Interface.imagensAlbum1.size();
+                break;
+            case 2:
+                numImgs = Interface.imagensAlbum2.size();
+                break;
+            case 3:
+                numImgs = Interface.imagensAlbum3.size();
+                break;
+            default:
+                break;
+        }
+        
+        if(numFotoShowReel > numImgs-5){
             numFotoShowReel --;
-            jPanel5.drawImage();
+            
+            jButton14.setIcon(bigiconIcons.get(Interface.numFotoShowReel));
+        }else if(numFotoShowReel > 0){
+            numFotoShowReel --;
+            
+            jButton9.setIcon(smalliconIcons.get(Interface.numFotoShowReel));
+            jButton10.setIcon(smalliconIcons.get(Interface.numFotoShowReel + 1));
+            jButton11.setIcon(smalliconIcons.get(Interface.numFotoShowReel + 2));
+            jButton12.setIcon(smalliconIcons.get(Interface.numFotoShowReel + 3));
+            jButton13.setIcon(smalliconIcons.get(Interface.numFotoShowReel + 4));
+            
+            jButton14.setIcon(bigiconIcons.get(Interface.numFotoShowReel));
         }else{
             System.out.println("Já está na imagem 0");
-        } 
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
-        String num = String.valueOf(Interface.numAlbumShow);
-        String fileLocation = "/Users/simaonogueira/OneDrive - Universidade de Coimbra/FCTUC - LDM/PED/NetBeansProjects/MiniProjeto/Album" + num + "/";
-                
-        // Faz a leitura dos vários ficheiros dentro da pasta pretendida
-        File imgs = new File(fileLocation);
-        ArrayList<String> imagens = new ArrayList<String>(Arrays.asList(imgs.list()));
-        for(int i=0; i<imagens.size(); i++){
-            String temp = imagens.get(i);
-            // Remove o ficheiro que não nos interessa
-            if(temp.equals(".DS_Store")){
-                imagens.remove(i);
-            }
-        }
-
-        // Número de Imagens a ler e display
-        int numImgs = imagens.size();
+        int numImgs = 0;
         
-        if(numFotoShowReel < numImgs-1){
+        switch (Interface.numAlbumShow) {
+            case 1:
+                numImgs = Interface.imagensAlbum1.size();
+                break;
+            case 2:
+                numImgs = Interface.imagensAlbum2.size();
+                break;
+            case 3:
+                numImgs = Interface.imagensAlbum3.size();
+                break;
+            default:
+                break;
+        }
+        
+        if(numFotoShowReel < numImgs-5){
             numFotoShowReel ++;
-            jPanel5.drawImage();
+            
+            jButton9.setIcon(smalliconIcons.get(Interface.numFotoShowReel));
+            jButton10.setIcon(smalliconIcons.get(Interface.numFotoShowReel + 1));
+            jButton11.setIcon(smalliconIcons.get(Interface.numFotoShowReel + 2));
+            jButton12.setIcon(smalliconIcons.get(Interface.numFotoShowReel + 3));
+            jButton13.setIcon(smalliconIcons.get(Interface.numFotoShowReel + 4));
+            
+            jButton14.setIcon(bigiconIcons.get(Interface.numFotoShowReel));
+        }else if(numFotoShowReel < numImgs-1){
+            numFotoShowReel ++;
+            
+            jButton14.setIcon(bigiconIcons.get(Interface.numFotoShowReel));
         }else{
             System.out.println("Já está na imagem final");
         }
@@ -507,6 +772,7 @@ public class Interface extends javax.swing.JFrame {
         if(numAlbumShow > 1){
             numAlbumShow--;
             jPanel4.drawImage();
+            System.out.println("Album a apresentar: " + numAlbumShow);
         }else{
             System.out.println("Já está no album 0");
         }
@@ -518,6 +784,7 @@ public class Interface extends javax.swing.JFrame {
         if(numAlbumShow < numAlbum){
             numAlbumShow++;
             jPanel4.drawImage();
+            System.out.println("Album a apresentar: " + numAlbumShow);
         }else{
             System.out.println("Já está no album final");
         }
@@ -527,9 +794,26 @@ public class Interface extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         Interface.numFotoShowReel = 0;
-        jPanel3.drawImage();
-        jPanel5.drawImage();
+        
+        smallIcons.getIconGeral(190);
+        bigIcons.getIconGeral(524);
+        
+        jButton9.setIcon(smalliconIcons.get(Interface.numFotoShowReel));
+        jButton10.setIcon(smalliconIcons.get(Interface.numFotoShowReel + 1));
+        jButton11.setIcon(smalliconIcons.get(Interface.numFotoShowReel + 2));
+        jButton12.setIcon(smalliconIcons.get(Interface.numFotoShowReel + 3));
+        jButton13.setIcon(smalliconIcons.get(Interface.numFotoShowReel + 4));
+        
+        System.out.println("Numero de big icons: " + bigiconIcons.size());
+        jButton14.setIcon(bigiconIcons.get(Interface.numFotoShowReel));
+        
+        // Faz o botão do painel seguinte parecer um jPanel
+        jButton14.setBorderPainted(false);
+        jButton14.setFocusPainted(false);
+        jButton14.setContentAreaFilled(false);
+        
         jDialog2.setVisible (true);
+        jDialog1.setVisible (false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -538,11 +822,264 @@ public class Interface extends javax.swing.JFrame {
         jPanel7.drawImage();
         jDialog3.setVisible (true);
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        
+        int numImgs = 0;
+        
+        switch (Interface.numAlbumShow) {
+            case 1:
+                numImgs = Interface.imagensAlbum1.size();
+                break;
+            case 2:
+                numImgs = Interface.imagensAlbum2.size();
+                break;
+            case 3:
+                numImgs = Interface.imagensAlbum3.size();
+                break;
+            default:
+                break;
+        }
+        
+        if(numFotoShowReel > numImgs-5){
+            Interface.numFotoShowReel = Interface.numFotoShowReel - 4;
+            jButton14.setIcon(bigiconIcons.get(Interface.numFotoShowReel));
+        }else{
+            jButton14.setIcon(bigiconIcons.get(Interface.numFotoShowReel));
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        
+        int numImgs = 0;
+        
+        switch (Interface.numAlbumShow) {
+            case 1:
+                numImgs = Interface.imagensAlbum1.size();
+                break;
+            case 2:
+                numImgs = Interface.imagensAlbum2.size();
+                break;
+            case 3:
+                numImgs = Interface.imagensAlbum3.size();
+                break;
+            default:
+                break;
+        }
+        
+        if(numFotoShowReel > numImgs-5){
+            Interface.numFotoShowReel = Interface.numFotoShowReel - 3;
+            jButton14.setIcon(bigiconIcons.get(Interface.numFotoShowReel));
+        }else{
+            Interface.numFotoShowReel = Interface.numFotoShowReel + 1;
+            jButton14.setIcon(bigiconIcons.get(Interface.numFotoShowReel));
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        
+        int numImgs = 0;
+        
+        switch (Interface.numAlbumShow) {
+            case 1:
+                numImgs = Interface.imagensAlbum1.size();
+                break;
+            case 2:
+                numImgs = Interface.imagensAlbum2.size();
+                break;
+            case 3:
+                numImgs = Interface.imagensAlbum3.size();
+                break;
+            default:
+                break;
+        }
+        
+        if(numFotoShowReel > numImgs-5){
+            Interface.numFotoShowReel = Interface.numFotoShowReel - 2;
+            jButton14.setIcon(bigiconIcons.get(Interface.numFotoShowReel));
+        }else{
+            Interface.numFotoShowReel = Interface.numFotoShowReel + 2;
+            jButton14.setIcon(bigiconIcons.get(Interface.numFotoShowReel));
+        }
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        
+        int numImgs = 0;
+        
+        switch (Interface.numAlbumShow) {
+            case 1:
+                numImgs = Interface.imagensAlbum1.size();
+                break;
+            case 2:
+                numImgs = Interface.imagensAlbum2.size();
+                break;
+            case 3:
+                numImgs = Interface.imagensAlbum3.size();
+                break;
+            default:
+                break;
+        }
+        
+        if(numFotoShowReel > numImgs-5){
+            Interface.numFotoShowReel = Interface.numFotoShowReel - 1;
+            jButton14.setIcon(bigiconIcons.get(Interface.numFotoShowReel));
+        }else{
+            Interface.numFotoShowReel = Interface.numFotoShowReel + 3;
+            jButton14.setIcon(bigiconIcons.get(Interface.numFotoShowReel));
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        
+        int numImgs = 0;
+        
+        switch (Interface.numAlbumShow) {
+            case 1:
+                numImgs = Interface.imagensAlbum1.size();
+                break;
+            case 2:
+                numImgs = Interface.imagensAlbum2.size();
+                break;
+            case 3:
+                numImgs = Interface.imagensAlbum3.size();
+                break;
+            default:
+                break;
+        }
+        
+        if(numFotoShowReel > numImgs-5){
+            jButton14.setIcon(bigiconIcons.get(Interface.numFotoShowReel));
+        }else{
+            Interface.numFotoShowReel = Interface.numFotoShowReel + 4;
+            jButton14.setIcon(bigiconIcons.get(Interface.numFotoShowReel));
+        }
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+        
+        jDialog1.setVisible(false);
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+        
+        jDialog1.setVisible(true);
+        jDialog2.setVisible(false);
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        // TODO add your handling code here:
+        
+        jDialog1.setVisible(true);
+        jDialog2.setVisible(true);
+        jDialog3.setVisible(false);
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        
+        String filename = "";
+        String dir = "";
+        
+        switch (Interface.numAlbumShow) {
+            case 1:
+                filename = "./Album1/" + imagensAlbum1.get(numFotoShowReel);
+                dir = "./Album1";
+                break;
+            case 2:
+                filename = "./Album2/" + imagensAlbum2.get(numFotoShowReel);
+                dir = "./Album2";
+                break;
+            case 3:
+                filename = "./Album3/" + imagensAlbum3.get(numFotoShowReel);
+                dir = "./Album3";
+                break;
+            default:
+                break;
+        }
+        
+        
+        jPanel7.saveImage(filename);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        // TODO add your handling code here:
+        
+        String filename = "";
+        String dir = "";
+        
+        switch (Interface.numAlbumShow) {
+            case 1:
+                filename = "./Album1/" + imagensAlbum1.get(numFotoShowReel);
+                dir = "./Album1";
+                break;
+            case 2:
+                filename = "./Album2/" + imagensAlbum2.get(numFotoShowReel);
+                dir = "./Album2";
+                break;
+            case 3:
+                filename = "./Album3/" + imagensAlbum3.get(numFotoShowReel);
+                dir = "./Album3";
+                break;
+            default:
+                break;
+        }
+        
+        jPanel7.saveImage(filename);
+        
+        System.exit(0);
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        // TODO add your handling code here:
+        
+        String filename = "";
+        
+        switch (Interface.numAlbumShow) {
+            case 1:
+                filename = "./Album1/" + jTextField1.getText() + ".jpg";
+                break;
+            case 2:
+                filename = "./Album2/" + jTextField1.getText() + ".jpg";
+                break;
+            case 3:
+                filename = "./Album3/" + jTextField1.getText() + ".jpg";
+                break;
+            default:
+                break;
+        }
+        
+        
+        jPanel7.saveImage(filename);
+    }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton24ActionPerformed
     
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -573,11 +1110,15 @@ public class Interface extends javax.swing.JFrame {
             }
         });
         
-        
     }
     
+    static ArrayList<String> imagensAlbum1 = new ArrayList<String>();
+    static ArrayList<String> imagensAlbum2 = new ArrayList<String>();
+    static ArrayList<String> imagensAlbum3 = new ArrayList<String>();
+    static int numTotAlbum = 3;
+    
     boolean welcomeScreen = true;
-    int numAlbum = 0;
+    int numAlbum = numTotAlbum;
     
     static int relMouseXAlbum = 0;
     static int relMouseYAlbum = 0;
@@ -589,20 +1130,44 @@ public class Interface extends javax.swing.JFrame {
     
     static int numAlbumShow = 1;
     
+    // Variáveis globais responsáveis pela construção dos icones do painel de pré-visualização de imagens
+    static ArrayList<Icon> smalliconIcons = new ArrayList<Icon>();
+    IconImageDisplayer smallIcons = new IconImageDisplayer();
+    
+    static ArrayList<Icon> bigiconIcons = new ArrayList<Icon>();
+    IconImageDisplayer1 bigIcons = new IconImageDisplayer1();
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JDialog jDialog3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     /*
     private javax.swing.JPanel jPanel1;
     */
@@ -611,18 +1176,12 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     */
     private ImageDisplayer jPanel2;
-    /*
     private javax.swing.JPanel jPanel3;
-    */
-    private ImageDisplayer3 jPanel3;
     /*
     private javax.swing.JPanel jPanel4;
     */
     private ImageDisplayer2 jPanel4;
-    /*
     private javax.swing.JPanel jPanel5;
-    */
-    private ImageDisplayer4 jPanel5;
     private javax.swing.JPanel jPanel6;
     /*
     private javax.swing.JPanel jPanel7;
@@ -630,7 +1189,8 @@ public class Interface extends javax.swing.JFrame {
     private ImageDisplayer5 jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JSlider jSlider1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

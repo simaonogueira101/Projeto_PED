@@ -56,10 +56,6 @@ public class CustomPanel extends JPanel{
             }
         }
         
-        public void welcomeScreen(String directory){
-            
-        }
-        
         public void drawImage(String file, int X, int Y) {
             try {
                 // Leitura de ficheiro e desenho no painel

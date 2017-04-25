@@ -56,25 +56,37 @@ public class ImageDisplayer2 extends JPanel{
         public void drawImage() {
             try {
                 
-                String num = String.valueOf(Interface.numAlbumShow);
-                String fileLocation = "/Users/simaonogueira/OneDrive - Universidade de Coimbra/FCTUC - LDM/PED/NetBeansProjects/MiniProjeto/Album" + num + "/";
+                ArrayList<String> imagens = new ArrayList<String>();
                 
-                // Faz a leitura dos vários ficheiros dentro da pasta pretendida
-                File imgs = new File(fileLocation);
-                ArrayList<String> imagens = new ArrayList<String>(Arrays.asList(imgs.list()));
-                for(int i=0; i<imagens.size(); i++){
-                    String temp = imagens.get(i);
-                    // Remove o ficheiro que não nos interessa
-                    if(temp.equals(".DS_Store")){
-                        imagens.remove(i);
-                    }
+                int numImgs = 0;
+        
+                switch (Interface.numAlbumShow) {
+                    case 1:
+                        numImgs = Interface.imagensAlbum1.size();
+                        for(int i=0; i<numImgs; i++){
+                            imagens.add(Interface.imagensAlbum1.get(i));
+                        }
+                        break;
+                    case 2:
+                        numImgs = Interface.imagensAlbum2.size();
+                        for(int i=0; i<numImgs; i++){
+                            imagens.add(Interface.imagensAlbum2.get(i));
+                        }
+                        break;
+                    case 3:
+                        numImgs = Interface.imagensAlbum3.size();
+                        for(int i=0; i<numImgs; i++){
+                            imagens.add(Interface.imagensAlbum3.get(i));
+                        }
+                        break;
+                    default:
+                        break;
                 }
                 
-                // Número de Imagens a ler e display
-                int numImgs = imagens.size();
+                String num = String.valueOf(Interface.numAlbumShow);
+                String fileLocation = "./Album" + num + "/";
                 
-                // Verificação dos ficheiros lidos e dos nomes guardados
-                System.out.println("Nome das Imagens: " + imagens);
+                System.out.println("Nome do Album a Apresentar em ImageDisplayer2: " + Interface.numAlbumShow);
                 
                 // Criação de um ArrayList onde serão colocadas imagens
                 ArrayList<Image> albumIcons = new ArrayList<Image>();
@@ -139,8 +151,11 @@ public class ImageDisplayer2 extends JPanel{
                     }
                 }
                 
+                System.out.println(">>>>>>>>>>>>>> ImageDisplayer2 = Done <<<<<<<<<<<<<<");
                 
-                
+                // Measures to save Java allocated memory
+                albumIcons.clear();
+                imagens.clear();
             }
             catch (IOException e) {
                 System.out.println( e.getMessage());
